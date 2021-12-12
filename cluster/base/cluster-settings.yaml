@@ -5,5 +5,7 @@ metadata:
   name: cluster-settings
   namespace: flux-system
 data:
+  NAS_ADDR: "10.0.0.241"
   METALLB_LB_RANGE: 10.0.0.20-10.0.0.30
   METALLB_TRAEFIK_ADDR: 10.0.0.20
+  METALLB_PLEX_ADDR: 10.0.0.21
