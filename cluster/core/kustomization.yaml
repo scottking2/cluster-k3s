@@ -4,6 +4,6 @@ resources:
   - namespaces
   - cert-manager
   - kube-system
-  - media
+  - namespaces
   - metallb-system
   - system-upgrade
