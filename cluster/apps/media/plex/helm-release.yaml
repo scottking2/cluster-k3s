@@ -59,7 +59,7 @@ spec:
         enabled: true
         existingClaim: plex-config-v1
       media:
-        enabled: true
+        enabled: false
         type: custom
         volumeSpec:
           nfs:
