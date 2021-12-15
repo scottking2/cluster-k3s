@@ -21,7 +21,7 @@ spec:
   values:
     replicaCount: 1
     nfs:
-      server: "${NAS_ADDR}"
+      server: "10.0.0.241"
       path: "/volume1/Media/plex"
     storageClass:
       defaultClass: true
