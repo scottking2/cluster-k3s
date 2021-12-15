@@ -57,14 +57,14 @@ spec:
     persistence:
       config:
         enabled: true
-        existingClaim: plex-config-v1
+        existingClaim: plex-media
       media:
         enabled: true
         type: custom
         volumeSpec:
           nfs:
             server: "${NAS_ADDR}"
-            path: /tycho/Media
+            path: /volume1/Media/plex
         mountPath: /media
         readOnly: true
       transcode:
