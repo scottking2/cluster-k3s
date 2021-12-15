@@ -27,13 +27,13 @@ spec:
       ALLOWED_NETWORKS: 10.0.0.0/255.255.255.0
       PLEX_CLAIM: claim-zUasSSXJF3HUAsUFCAks
       # PLEX_PREFERENCE_1: "FriendlyName=HancockPlex"
-    service:
-      main:
-        type: NodePort
-        ports:
-          - port: 32400
-            targetport: 32400
-            nodeport: 30007
+#     service:
+#       main:
+#         type: NodePort
+#         ports:
+#           - port: 32400
+#             targetport: 32400
+#             nodeport: 30007
 #         annotations:
 #           traefik.ingress.kubernetes.io/service.serversscheme: https
 #         loadBalancerIP: ${METALLB_PLEX_ADDR}
