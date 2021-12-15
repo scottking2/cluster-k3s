@@ -27,13 +27,13 @@ spec:
       ALLOWED_NETWORKS: 10.0.0.0/255.255.255.0
       # PLEX_CLAIM: ${SECRET_PLEX_CLAIM}
       # PLEX_PREFERENCE_1: "FriendlyName=HancockPlex"
-    service:
-      main:
-        type: LoadBalancer
-        annotations:
-          traefik.ingress.kubernetes.io/service.serversscheme: https
-        loadBalancerIP: ${METALLB_PLEX_ADDR}
-        externalTrafficPolicy: Local
+#     service:
+#       main:
+#         type: LoadBalancer
+#         annotations:
+#           traefik.ingress.kubernetes.io/service.serversscheme: https
+#         loadBalancerIP: ${METALLB_PLEX_ADDR}
+#         externalTrafficPolicy: Local
 
     ingress:
       main:
@@ -58,10 +58,6 @@ spec:
           - secretName: tls.plex
             hosts:
               - plex.${SECRET_DOMAIN}
-
-    hostNetwork: true
-
-    dnsPolicy: ClusterFirstWithHostNet
 
     # ingress:
     #   main:
