@@ -21,12 +21,10 @@ spec:
   values:
     replicaCount: 1
     nfs:
-      server: "${NAS_ADDR}"
-      path: "/volume1/Media/plex"
-      mountOptions:
-        - noatime
+      server: "${NAS_ADDRESS}"
     storageClass:
       defaultClass: true
+      pathPattern: "${.PVC.namespace}-${.PVC.name}"
     affinity:
       podAntiAffinity:
         preferredDuringSchedulingIgnoredDuringExecution:
