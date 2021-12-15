@@ -59,9 +59,9 @@ spec:
             hosts:
               - plex.${SECRET_DOMAIN}
 
-    # hostNetwork: true
+    hostNetwork: true
 
-    # dnsPolicy: ClusterFirstWithHostNet
+    dnsPolicy: ClusterFirstWithHostNet
 
     # ingress:
     #   main:
