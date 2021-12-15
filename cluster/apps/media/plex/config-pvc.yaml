@@ -9,7 +9,7 @@ spec:
     - ReadWriteMany
   resources:
     requests:
-      storage: 100Gi
+      storage: 1950Gi
   storageClassName: nfs-client
 
 ---
@@ -23,5 +23,5 @@ spec:
     - ReadWriteMany
   resources:
     requests:
-      storage: 1Gi
+      storage: 20Gi
   storageClassName: nfs-client
