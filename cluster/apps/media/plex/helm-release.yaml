@@ -27,32 +27,60 @@ spec:
       ALLOWED_NETWORKS: 10.0.0.0/255.255.255.0
       # PLEX_CLAIM: ${SECRET_PLEX_CLAIM}
       # PLEX_PREFERENCE_1: "FriendlyName=HancockPlex"
-
-    hostNetwork: true
-
-    dnsPolicy: ClusterFirstWithHostNet
-
+    service:
+      enabled: true
+      type: LoadBalancer
+      spec:
+        loadBalancerIP: "${SVC_PLEX_ADDR}"
+        externalTrafficPolicy: Local
+        #NOT sure about the lines below
+        annotations:
+          traefik.ingress.kubernetes.io/service.serversscheme: https    
     ingress:
       main:
         enabled: true
-        annotations: 
-          kubernetes.io/ingress.class: traefik 
-          external-dns.alpha.kubernetes.io/target: "ipv4.${SECRET_DOMAIN}"
-          external-dns/is-public: "true"
+        ingressClassName: "traefik"
+        annotations:
           cert-manager.io/cluster-issuer: "letsencrypt-production"
-          traefik.ingress.kubernetes.io/router.entrypoints: "websecure"
-          hajimari.io/appName: "Plex"
+          external-dns/is-public: "true"
           hajimari.io/enable: "true"
           hajimari.io/icon: "plex"
+          traefik.ingress.kubernetes.io/router.entrypoints: "websecure"
         hosts:
-          - host: plex.${SECRET_DOMAIN}
+          - host: "plex.${SECRET_DOMAIN}"
             paths:
               - path: /
                 pathType: Prefix
         tls:
           - hosts:
               - "plex.${SECRET_DOMAIN}"
-            secretName: plex-tls
+
+    # hostNetwork: true
+
+    # dnsPolicy: ClusterFirstWithHostNet
+
+    # ingress:
+    #   main:
+    #     enabled: true
+    #     ingressClassName: "traefik"
+    #     annotations: 
+    #       kubernetes.io/ingress.class: traefik 
+    #       external-dns.alpha.kubernetes.io/target: "ipv4.${SECRET_DOMAIN}"
+    #       external-dns/is-public: "true"
+    #       cert-manager.io/cluster-issuer: "letsencrypt-production"
+    #       traefik.ingress.kubernetes.io/router.entrypoints: "websecure"
+    #       hajimari.io/appName: "Plex"
+    #       hajimari.io/enable: "true"
+    #       hajimari.io/icon: "plex"
+    #     hosts:
+    #       - host: plex.${SECRET_DOMAIN}
+    #         paths:
+    #           - path: /
+    #             pathType: Prefix
+    #     tls:
+    #       - hosts:
+    #           - "plex.${SECRET_DOMAIN}"
+    #         secretName: plex-tls
 
     persistence:
       data:
