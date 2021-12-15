@@ -22,18 +22,8 @@ spec:
     replicaCount: 1
     nfs:
       server: "${NAS_ADDR}"
+      path: "/volume1/Media/plex"
     storageClass:
       defaultClass: true
       pathPattern: "${.PVC.namespace}-${.PVC.name}"
-    affinity:
-      podAntiAffinity:
-        preferredDuringSchedulingIgnoredDuringExecution:
-          - weight: 100
-            podAffinityTerm:
-              labelSelector:
-                matchExpressions:
-                  - key: app
-                    operator: In
-                    values:
-                      - nfs-subdir-external-provisioner
-              topologyKey: kubernetes.io/hostname
+    
