@@ -25,7 +25,7 @@ spec:
     env:
       TZ: "America/Denver"
       ALLOWED_NETWORKS: 10.0.0.0/255.255.255.0
-      # PLEX_CLAIM: ${SECRET_PLEX_CLAIM}
+      PLEX_CLAIM: claim-q1a24Ye_zrCnxerXKARR
       # PLEX_PREFERENCE_1: "FriendlyName=HancockPlex"
 #     service:
 #       main:
