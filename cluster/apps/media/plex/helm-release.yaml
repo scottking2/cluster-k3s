@@ -26,63 +26,22 @@ spec:
       TZ: "America/Denver"
       ALLOWED_NETWORKS: 10.0.0.0/255.255.255.0
       PLEX_CLAIM: claim-zUasSSXJF3HUAsUFCAks
-      # PLEX_PREFERENCE_1: "FriendlyName=KingPlex"
-
-  # service:
-  #   main:
-  #     type: NodePort
-  #     ports:
-  #       http:
-  #         port: 32400
-  #         targetPort: 32400
-  #         nodePort: 30008
-    # dnla-tcp:
-    #   enabled: true
-    #   type: NodePort
-    #   ports:
-    #     dnla-tcp:
-    #       enabled: true
-    #       port: 32469
-    #       protocol: TCP
-    #       targetPort: 32469
-    #       nodePort: 30007
-    #   externalTrafficPolicy: Local
-    # dnla-udp:
-    #   enabled: true
-    #   type: NodePort
-    #   ports:
-    #     dnla-udp:
-    #       enabled: true
-    #       port: 1900
-    #       protocol: TCP
-    #       targetPort: 1900
-    #   externalTrafficPolicy: Local
-
-    # service:
-    #   main:
-    #     type: NodePort
-    #     ports:
-    #       port: "32400"
-    #       targetPort: "32400"
-    #       nodePort: 30008
+      # PLEX_PREFERENCE_1: "FriendlyName=HancockPlex"
+    service:
+      main:
+        type: NodePort
+        ports:
+          - port: 32400
+            targetport: 32400
+            nodeport: 30007
 #         annotations:
 #           traefik.ingress.kubernetes.io/service.serversscheme: https
 #         loadBalancerIP: ${METALLB_PLEX_ADDR}
 #         externalTrafficPolicy: Local
-    service:
-      main:
-        type: NodePort
-        enabled: true
-        primary: true
-        ports:
-          http:
-            - port: 32400
-              targetPort: 32400
-              nodePort: 30010
 
     ingress:
       main:
-        enabled: false
+        enabled: true
         ingressClassName: "traefik"
         annotations:
           cert-manager.io/cluster-issuer: letsencrypt-production
