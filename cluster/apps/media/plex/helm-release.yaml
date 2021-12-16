@@ -28,14 +28,14 @@ spec:
       # PLEX_CLAIM: claim-zUasSSXJF3HUAsUFCAks
       # PLEX_PREFERENCE_1: "FriendlyName=KingPlex"
 
-  service:
-    main:
-      type: NodePort
-      ports:
-        http:
-          port: 32400
-          targetPort: 32400
-          nodePort: 30008
+  # service:
+  #   main:
+  #     type: NodePort
+  #     ports:
+  #       http:
+  #         port: 32400
+  #         targetPort: 32400
+  #         nodePort: 30008
     # dnla-tcp:
     #   enabled: true
     #   type: NodePort
@@ -72,7 +72,7 @@ spec:
 
     ingress:
       main:
-        enabled: false
+        enabled: true
         ingressClassName: "traefik"
         annotations:
           cert-manager.io/cluster-issuer: letsencrypt-production
