@@ -31,9 +31,11 @@ spec:
       main:
         type: NodePort
         ports:
-          - port: 32400
-            targetport: 32400
-            nodeport: 30007
+          http:
+            - enabled: true
+              port: 32400
+              targetPort: 32400
+              nodePort: 30007
 #         annotations:
 #           traefik.ingress.kubernetes.io/service.serversscheme: https
 #         loadBalancerIP: ${METALLB_PLEX_ADDR}
