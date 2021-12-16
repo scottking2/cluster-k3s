@@ -27,6 +27,32 @@ spec:
       ALLOWED_NETWORKS: 10.0.0.0/255.255.255.0
       PLEX_CLAIM: claim-zUasSSXJF3HUAsUFCAks
       # PLEX_PREFERENCE_1: "FriendlyName=HancockPlex"
+    service:
+      main:
+        type: LoadBalancer
+        loadBalancerIP: 10.0.0.21
+    ingress:
+      main:
+        enabled: true
+        ingressClassName: "nginx"
+        annotations:
+          # external-dns.alpha.kubernetes.io/target: "ipv4.${SECRET_DOMAIN}"
+          # external-dns/is-public: "true"
+          hajimari.io/enable: "true"
+          hajimari.io/icon: "plex"
+          nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
+        hosts:
+          - host: "plex.${SECRET_DOMAIN}"
+            paths:
+              - path: /
+                pathType: Prefix
+                backend:
+                  serviceName: plex
+                  servicePort: 32400
+        tls:
+          - secretName: plex.${SECRET_DOMAIN}-tls
+            hosts:
+              - plex.${SECRET_DOMAIN}
     # service:
     #   main:
     #     type: NodePort
@@ -36,57 +62,31 @@ spec:
     #           port: 32400
     #           targetPort: 32400
     #           nodePort: 30007
-#         annotations:
-#           traefik.ingress.kubernetes.io/service.serversscheme: https
-#         loadBalancerIP: ${METALLB_PLEX_ADDR}
-#         externalTrafficPolicy: Local
-
-    ingress:
-      main:
-        enabled: true
-        ingressClassName: "traefik"
-        annotations:
-          cert-manager.io/cluster-issuer: letsencrypt-production
-          external-dns/is-public: "true"
-          external-dns.alpha.kubernetes.io/target: ipv4.${SECRET_DOMAIN}
-          external-dns.alpha.kubernetes.io/cloudflare-proxied: "true"
-          traefik.ingress.kubernetes.io/router.entrypoints: websecure
-          hajimari.io/appName: "Plex"
-          hajimari.io/enable: "true"
-          hajimari.io/icon: "plex"
-
-        hosts:
-          - host: plex.${SECRET_DOMAIN}
-            paths:
-              - path: /
-                pathType: Prefix
-        tls:
-          - secretName: tls.plex
-            hosts:
-              - plex.${SECRET_DOMAIN}
 
     # ingress:
     #   main:
     #     enabled: true
     #     ingressClassName: "traefik"
-    #     annotations: 
-    #       kubernetes.io/ingress.class: traefik 
-    #       external-dns.alpha.kubernetes.io/target: "ipv4.${SECRET_DOMAIN}"
+    #     annotations:
+    #       cert-manager.io/cluster-issuer: letsencrypt-production
     #       external-dns/is-public: "true"
-    #       cert-manager.io/cluster-issuer: "letsencrypt-production"
-    #       traefik.ingress.kubernetes.io/router.entrypoints: "websecure"
+    #       external-dns.alpha.kubernetes.io/target: ipv4.${SECRET_DOMAIN}
+    #       external-dns.alpha.kubernetes.io/cloudflare-proxied: "true"
+    #       traefik.ingress.kubernetes.io/router.entrypoints: websecure
     #       hajimari.io/appName: "Plex"
     #       hajimari.io/enable: "true"
     #       hajimari.io/icon: "plex"
+
     #     hosts:
     #       - host: plex.${SECRET_DOMAIN}
     #         paths:
     #           - path: /
     #             pathType: Prefix
     #     tls:
-    #       - hosts:
-    #           - "plex.${SECRET_DOMAIN}"
-    #         secretName: plex-tls
+    #       - secretName: tls.plex
+    #         hosts:
+    #           - plex.${SECRET_DOMAIN}
+
 
     persistence:
       data:
@@ -95,22 +95,3 @@ spec:
       config:
         enabled: true
         existingClaim: "plex-config"
-
-    # affinity:
-    #   nodeAffinity:
-    #     requiredDuringSchedulingIgnoredDuringExecution:
-    #       nodeSelectorTerms:
-    #       - matchExpressions:
-    #         - key: kubernetes.io/arch
-    #           operator: In
-    #           values:
-    #           - amd64
-    #     preferredDuringSchedulingIgnoredDuringExecution:
-    #     - weight: 1
-    #       preference:
-    #         matchExpressions:
-    #           - key: kubernetes.io/hostname
-    #             operator: In
-    #             values:
-    #             - k8s-1
-    #             - k8s-2
