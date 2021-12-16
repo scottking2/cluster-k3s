@@ -28,15 +28,12 @@ spec:
       PLEX_CLAIM: claim-zUasSSXJF3HUAsUFCAks
       # PLEX_PREFERENCE_1: "FriendlyName=HancockPlex"
     service:
-      dnla-tcp:
-        enabled: false
-    # service:
-    #   main:
-    #     type: NodePort
-    #     ports:
-    #       - port: 32400
-    #         targetPort: 32400
-    #         nodePort: 30008
+      main:
+        type: NodePort
+        ports:
+          port: 32400
+          targetPort: 32400
+          nodePort: 30008
 #         annotations:
 #           traefik.ingress.kubernetes.io/service.serversscheme: https
 #         loadBalancerIP: ${METALLB_PLEX_ADDR}
