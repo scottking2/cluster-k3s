@@ -70,14 +70,14 @@ spec:
 #         loadBalancerIP: ${METALLB_PLEX_ADDR}
 #         externalTrafficPolicy: Local
     service:
-      type: NodePort
       main:
-        ports:
-          http:
-            - enabled: true
-              port: 32400
-              targetPort: 32400
-              nodePort: 30007
+        type: NodePort
+          ports:
+            http:
+              - enabled: true
+                port: 32400
+                targetPort: 32400
+                nodePort: 30007
 
     ingress:
       main:
