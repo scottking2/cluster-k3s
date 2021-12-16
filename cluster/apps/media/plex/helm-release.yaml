@@ -31,8 +31,8 @@ spec:
       main:
         type: NodePort
         ports:
-          port: 32400
-          targetPort: 32400
+          port: "32400"
+          targetPort: "32400"
           nodePort: 30008
 #         annotations:
 #           traefik.ingress.kubernetes.io/service.serversscheme: https
