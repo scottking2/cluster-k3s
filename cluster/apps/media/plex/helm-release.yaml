@@ -27,6 +27,34 @@ spec:
       ALLOWED_NETWORKS: 10.0.0.0/255.255.255.0
       # PLEX_CLAIM: claim-zUasSSXJF3HUAsUFCAks
       # PLEX_PREFERENCE_1: "FriendlyName=KingPlex"
+
+  service:
+  main:
+    primary: true
+    ports:
+      http:
+        port: 32400
+  dnla-tcp:
+    enabled: true
+    type: NodePort
+    ports:
+      dnla-tcp:
+        enabled: true
+        port: 32469
+        protocol: TCP
+        targetPort: 32469
+    externalTrafficPolicy: Local
+  dnla-udp:
+    enabled: true
+    type: NodePort
+    ports:
+      dnla-udp:
+        enabled: true
+        port: 1900
+        protocol: TCP
+        targetPort: 1900
+    externalTrafficPolicy: Local
+
     # service:
     #   main:
     #     type: NodePort
