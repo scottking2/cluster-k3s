@@ -74,8 +74,8 @@ spec:
         type: NodePort
           ports:
             http:
-              - enabled: true
-                port: 32400
+              - port: 32400
+                enabled: true
                 targetPort: 32400
                 nodePort: 30009
 
