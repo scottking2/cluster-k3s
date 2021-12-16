@@ -71,10 +71,11 @@ spec:
 #         externalTrafficPolicy: Local
     service:
       type: NodePort
-      ports:
-        - port: 32400
-          targetPort: 32400
-          nodePort: 30007
+      main:
+        ports:
+          - port: 32400
+            targetPort: 32400
+            nodePort: 30007
     ingress:
       main:
         enabled: true
