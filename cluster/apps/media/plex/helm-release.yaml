@@ -77,7 +77,7 @@ spec:
               - enabled: true
                 port: 32400
                 targetPort: 32400
-                nodePort: 30007
+                nodePort: 30009
 
     ingress:
       main:
