@@ -72,12 +72,13 @@ spec:
     service:
       main:
         type: NodePort
+        enabled: true
+        primary: true
         ports:
-          https:
+          http:
             - port: 32400
-              enabled: true
               targetPort: 32400
-              nodePort: 30009
+              nodePort: 30010
 
     ingress:
       main:
