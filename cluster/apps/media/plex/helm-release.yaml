@@ -73,10 +73,10 @@ spec:
       type: NodePort
       main:
         ports:
-          enabled: true
-          port: 32400
-          targetPort: 32400
-          nodePort: 30007
+          http:
+            port: 32400
+            targetPort: 32400
+            nodePort: 30007
     ingress:
       main:
         enabled: true
