@@ -21,9 +21,11 @@ spec:
       repository: ghcr.io/k8s-at-home/plex
       tag: v1.25.2.5319-c43dc0277
       pullPolicy: IfNotPresent
+
     env:
       TZ: "America/Denver"
       ALLOWED_NETWORKS: 10.0.0.0/255.255.255.0
+      PLEX_CLAIM: claim-zUasSSXJF3HUAsUFCAks
       PLEX_PREFERENCE_1: "FriendlyName=KingPlex"
     ingress:
       main:
@@ -38,6 +40,7 @@ spec:
           hajimari.io/appName: "Plex"
           hajimari.io/enable: "true"
           hajimari.io/icon: "plex"
+
         hosts:
           - host: plex.${SECRET_DOMAIN}
             paths:
@@ -47,6 +50,8 @@ spec:
           - secretName: tls.plex
             hosts:
               - plex.${SECRET_DOMAIN}
+
+
     persistence:
       data:
         enabled: true
