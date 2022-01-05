@@ -97,13 +97,11 @@
       "matchUpdateTypes": ["patch"],
       "labels": ["renovate/helm", "dep/patch"]
     },
-    // auto-updates plex
+    // auto-merge non-major version updates
     {
-      "datasources": ["docker"],
-      "versioning": "loose",
+      "matchUpdateTypes": ["minor", "patch", "pin", "digest"],
       "automerge": true,
-      "packageNames": ["ghcr.io/k8s-at-home/plex"],
-      "labels": ["auto-update"]
+      "addLabels": ["auto-merge"]
     }
   ]
 }
