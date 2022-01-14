@@ -1,0 +1,42 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: recipes
+  namespace: recipes
+spec:
+  interval: 5m
+  chart:
+    spec:
+      chart: recipes
+      sourceRef:
+        kind: HelmRepository
+        name: k8s-at-home
+        namespace: flux-system
+      interval: 5m
+  values:
+    env:
+      TZ: "America/Denver"
+    ingress:
+      main:
+        enabled: true
+        ingressClassName: "traefik"
+        annotations:
+          cert-manager.io/cluster-issuer: letsencrypt-production
+          external-dns/is-public: "true"
+          external-dns.alpha.kubernetes.io/target: ipv4.${SECRET_DOMAIN}
+          external-dns.alpha.kubernetes.io/cloudflare-proxied: "true"
+          traefik.ingress.kubernetes.io/router.entrypoints: websecure
+          hajimari.io/appName: "Recipes"
+          hajimari.io/enable: "true"
+          hajimari.io/icon: "Recipes"
+
+        hosts:
+          - host: recipes.${SECRET_DOMAIN}
+            paths:
+              - path: /
+                pathType: Prefix
+        tls:
+          - secretName: tls.recipes
+            hosts:
+              - recipes.${SECRET_DOMAIN}
