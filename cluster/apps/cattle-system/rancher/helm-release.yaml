@@ -14,7 +14,7 @@ spec:
         kind: HelmRepository
         name: rancher-charts
         namespace: flux-system
-  interval: 15m0s
+      interval: 15m0s
   values:
     replicas: 1
     ingress:
