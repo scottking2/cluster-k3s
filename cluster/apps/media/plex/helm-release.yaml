@@ -50,12 +50,10 @@ spec:
           - secretName: tls.plex
             hosts:
               - plex.${SECRET_DOMAIN}
-
-
     persistence:
       data:
         enabled: true
         existingClaim: "plex-media"
       config:
         enabled: true
-        existingClaim: "plex-config"
+        existingClaim: "plex-config-longhorn"
