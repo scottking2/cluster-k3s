@@ -39,7 +39,7 @@ spec:
           traefik.ingress.kubernetes.io/router.entrypoints: websecure
           hajimari.io/appName: "Plex"
           hajimari.io/enable: "true"
-          hajimari.io/icon: "cow"
+          hajimari.io/icon: "plex"
 
         hosts:
           - host: plex.${SECRET_DOMAIN}
