@@ -56,4 +56,4 @@ spec:
         existingClaim: "plex-media"
       config:
         enabled: true
-        existingClaim: "plex-config"
+        existingClaim: "plex-config-longhorn"
