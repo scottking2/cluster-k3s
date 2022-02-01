@@ -16,7 +16,6 @@ spec:
         namespace: flux-system
   interval: 15m0s
   timeout: 20m
-  
   values:
     replicas: 1
     ingress:
