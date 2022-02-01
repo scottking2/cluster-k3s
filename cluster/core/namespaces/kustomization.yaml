@@ -6,4 +6,3 @@ resources:
   - networking.yaml
   - media.yaml
   - cattle-system.yaml
-  - home.yaml
