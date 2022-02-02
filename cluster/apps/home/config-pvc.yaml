@@ -14,4 +14,3 @@ spec:
       storage: 10Gi
   storageClassName: longhorn
   volumeMode: Filesystem
-
