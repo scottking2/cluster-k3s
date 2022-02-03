@@ -29,6 +29,8 @@ spec:
           - default
           - networking
           - media
+          - home
+          - cattle-system
       name: "Scott"
       # customApps:
       #   - name: Some External Cluster Service
