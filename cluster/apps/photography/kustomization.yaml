@@ -3,4 +3,4 @@ kind: Kustomization
 resources:
 #  - lychee-pvc.yaml
   - helm-release.yaml
-  - ingress.lyaml
+  # - ingress.lyaml
