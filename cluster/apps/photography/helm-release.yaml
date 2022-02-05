@@ -29,7 +29,7 @@ spec:
           traefik.ingress.kubernetes.io/router.entrypoints: "websecure"
           hajimari.io/appName: "HA"
           hajimari.io/enable: "true"
-          hajimari.io/icon: "camera"
+          hajimari.io/icon: "cow"
         hosts:
           - host: "gkphoto.${SECRET_DOMAIN}"
             paths:
