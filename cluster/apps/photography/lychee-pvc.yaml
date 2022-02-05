@@ -123,4 +123,3 @@ spec:
       storage: 5Gi
   storageClassName: longhorn
   volumeMode: Filesystem
-
