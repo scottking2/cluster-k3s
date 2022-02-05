@@ -27,15 +27,26 @@ spec:
     ingress:
       main:
         enabled: true
+        ingressClassName: "traefik"
         annotations:
-          kubernetes.io/ingress.class: traefik 
-          external-dns.alpha.kubernetes.io/target: "ipv4.${SECRET_DOMAIN}"
+          cert-manager.io/cluster-issuer: letsencrypt-production
           external-dns/is-public: "true"
-          cert-manager.io/cluster-issuer: "letsencrypt-production"
-          traefik.ingress.kubernetes.io/router.entrypoints: "websecure"
+          external-dns.alpha.kubernetes.io/target: ipv4.${SECRET_DOMAIN}
+          external-dns.alpha.kubernetes.io/cloudflare-proxied: "true"
+          traefik.ingress.kubernetes.io/router.entrypoints: websecure
           hajimari.io/appName: "lychee"
           hajimari.io/enable: "true"
           hajimari.io/icon: "cow"
+
+        # annotations:
+        #   kubernetes.io/ingress.class: traefik 
+        #   external-dns.alpha.kubernetes.io/target: "ipv4.${SECRET_DOMAIN}"
+        #   external-dns/is-public: "true"
+        #   cert-manager.io/cluster-issuer: "letsencrypt-production"
+        #   traefik.ingress.kubernetes.io/router.entrypoints: "websecure"
+        #   hajimari.io/appName: "lychee"
+        #   hajimari.io/enable: "true"
+        #   hajimari.io/icon: "cow"
         hosts:
           - host: "gkphoto.${SECRET_DOMAIN}"
             paths:
