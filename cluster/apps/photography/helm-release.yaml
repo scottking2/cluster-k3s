@@ -36,9 +36,9 @@ spec:
               - path: /
                 pathType: Prefix
         tls:
-          - secretName: gkphoto.tls
+          - secretName: tls.gkphoto
             hosts:
-              - "gkphoto.${SECRET_DOMAIN}"
+              - gkphoto.${SECRET_DOMAIN}
     persistence:
       config:
         enabled: true
