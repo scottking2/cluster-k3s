@@ -4,7 +4,6 @@ kind: HelmRelease
 metadata:
   name: lychee
   namespace: photography
-  namespace: default--source=HelmRepository/k8s-at-home-charts.flux-system
 spec:
   interval: 10m
   chart:
