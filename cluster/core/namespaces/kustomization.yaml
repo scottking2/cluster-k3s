@@ -7,3 +7,4 @@ resources:
   - media.yaml
   - cattle-system.yaml
   - home.yaml
+  - photography.yaml
