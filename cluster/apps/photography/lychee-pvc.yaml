@@ -14,6 +14,7 @@ spec:
   csi:
     driver: driver.longhorn.io
     fsType: ext4
+    volumeHandle: lychee-config-pv
     volumeAttributes:
       fsType: ext4
       numberOfReplicas: "1"
@@ -38,6 +39,7 @@ spec:
   csi:
     driver: driver.longhorn.io
     fsType: ext4
+    volumeHandle: lychee-uploads-pv
     volumeAttributes:
       fsType: ext4
       numberOfReplicas: "1"
@@ -62,6 +64,7 @@ spec:
   csi:
     driver: driver.longhorn.io
     fsType: ext4
+    volumeHandle: lychee-sym-pv
     volumeAttributes:
       fsType: ext4
       numberOfReplicas: "1"
