@@ -36,9 +36,9 @@ spec:
               - path: /
                 pathType: Prefix
         tls:
-          - hosts:
+          - secretName: lychee.tls
+            hosts:
               - "gkphoto.${SECRET_DOMAIN}"
-            secretName: "lychee-tls"
     persistence:
       config:
         enabled: true
