@@ -32,7 +32,6 @@ spec:
           hajimari.io/enable: "true"
           hajimari.io/icon: "cow"
 
-
         # annotations:
         #   kubernetes.io/ingress.class: traefik 
         #   external-dns.alpha.kubernetes.io/target: "ipv4.${SECRET_DOMAIN}"
