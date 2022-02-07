@@ -18,12 +18,6 @@ spec:
   values:
     env:
       TZ: "America/Denver"
-    service:
-      main:
-        ports:
-          http:
-            port: 8880
-
     ingress:
       main:
         enabled: true
