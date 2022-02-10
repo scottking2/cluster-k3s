@@ -31,7 +31,6 @@ spec:
           - media
           - home
           - cattle-system
-          - photography
       name: "Scott"
       # customApps:
       #   - name: Some External Cluster Service
