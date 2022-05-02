@@ -19,7 +19,6 @@ spec:
   values:
     image:
       repository: hkotel/mealie
-      tag: 4.2.1
     env: 
       TZ: "America/Denver"
     hostNetwork: true
