@@ -4,6 +4,7 @@ resources:
   - cert-manager.yaml
   - metallb-system.yaml
   - networking.yaml
+  - mealie.yaml
   - media.yaml
   - cattle-system.yaml
   - home.yaml
