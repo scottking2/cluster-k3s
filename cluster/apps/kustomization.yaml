@@ -5,6 +5,7 @@ resources:
   - kube-system
   - networking
   - system-upgrade
+  - mealie
   - media
   - cattle-system
   - home
