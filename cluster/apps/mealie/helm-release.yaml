@@ -34,7 +34,7 @@ spec:
           traefik.ingress.kubernetes.io/router.entrypoints: "websecure"
           hajimari.io/appName: "Mealie"
           hajimari.io/enable: "true"
-          hajimari.io/icon: "food"
+          hajimari.io/icon: "chef-hat"
         hosts:
           - host: "mealie.${SECRET_DOMAIN}"
             paths:
