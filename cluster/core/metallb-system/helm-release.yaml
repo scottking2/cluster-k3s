@@ -16,9 +16,11 @@ spec:
         name: metallb-charts
         namespace: flux-system
   values:
-    configInline:
-      address-pools:
-        - name: default
-          protocol: layer2
-          addresses:
-            - "${METALLB_LB_RANGE}"
+    crds:
+      enabled: true
+    # configInline:
+    #   address-pools:
+    #     - name: default
+    #       protocol: layer2
+    #       addresses:
+    #         - "${METALLB_LB_RANGE}"
