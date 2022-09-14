@@ -5,4 +5,4 @@ metadata:
   namespace: metallb-system
 spec:
   addresses:
-  - ${METALLB_LB_RANGE}
+  - "${METALLB_LB_RANGE}"
