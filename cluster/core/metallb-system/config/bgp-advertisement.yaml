@@ -1,5 +1,5 @@
 apiVersion: metallb.io/v1beta1
-kind: L2Advertisement
+kind: BGPAdvertisement
 metadata:
-  name: l2
+  name: bgp
   namespace: metallb-system
