@@ -50,9 +50,9 @@ spec:
       config:
         enabled: true
         existingClaim: "mealie-pvc"
-       api-data:
-         enabled: true
-         existingClaim: "mealie-api-data"
+      api-data:
+        enabled: true
+        existingClaim: "mealie-api-data"
     resources:
       requests:
         cpu: 100m
