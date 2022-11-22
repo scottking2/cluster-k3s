@@ -11,7 +11,7 @@ spec:
       # renovate: 
       #registryUrl=https://k8s-at-home.com/charts/
       chart: mealie
-      version: 5.1.2
+      version: 4.2.2
       sourceRef:
         kind: HelmRepository
         name: k8s-at-home-charts
@@ -50,9 +50,6 @@ spec:
       config:
         enabled: true
         existingClaim: "mealie-pvc"
-      api-data:
-        enabled: true
-        existingClaim: "mealie-api-data"
     resources:
       requests:
         cpu: 100m
